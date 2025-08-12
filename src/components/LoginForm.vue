@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form">
     <h1>User Information Form / Credentials</h1>
     <form>
       <label for="username">Username:</label><br />
