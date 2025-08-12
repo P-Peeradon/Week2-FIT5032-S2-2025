@@ -95,6 +95,17 @@ const submitForm = () => {
     ...formData.value,
   })
 }
+
+const clearForm = () => {
+  submittedCards.value = []
+  formData.value = {
+    username: '',
+    password: '',
+    isAustralian: false,
+    reason: '',
+    gender: '',
+  }
+}
 </script>
 
 <style scoped>
