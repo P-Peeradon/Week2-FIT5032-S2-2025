@@ -7,7 +7,16 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="username">Username:</label><br />
-              <input type="text" id="username" name="username" v-model="formData.username" /><br />
+              <input
+                type="text"
+                id="username"
+                @blur="() => validateName(true)"
+                @input="() => validateName(false)"
+                name="username"
+                v-model="formData.username"
+              />
+              <div v-if="errors.username" class="text-danger">{{ errors.username }}</div>
+              <br />
             </div>
 
             <div class="col-md-6">
