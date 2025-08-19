@@ -127,7 +127,7 @@ const submitForm = () => {
     !errors.value.username &&
     !errors.value.password &&
     !errors.value.gender &&
-    !!errors.value.reason
+    !errors.value.reason
   ) {
     submittedCards.value.push({ ...formData.value })
     clearForm()
@@ -135,7 +135,7 @@ const submitForm = () => {
 }
 
 const clearForm = () => {
-  submittedCards.value = []
+  //submittedCards.value = []
   formData.value = {
     username: '',
     password: '',
