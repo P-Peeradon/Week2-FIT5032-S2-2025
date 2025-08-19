@@ -152,7 +152,7 @@ const validatePassword = (blur) => {
   } else if (!hasUppercase) {
     if (blur) errors.value.password = 'Password must contain at least one uppercase letter.'
   } else if (!hasLowercase) {
-    if (blur) errors.value.password = 'Password must contain at least one uppercase letter.'
+    if (blur) errors.value.password = 'Password must contain at least one lowercase letter.'
   } else if (!hasNumber) {
     if (blur) errors.value.password = 'Password must contain at least one number.'
   } else if (!hasSpecialChar) {
