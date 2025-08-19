@@ -7,7 +7,13 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="username">Username:</label><br />
-              <input type="text" id="username" name="username" v-model="formData.username" /><br />
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                v-model="formData.username"
+              /><br />
             </div>
 
             <div class="col-md-6">
@@ -16,6 +22,8 @@
                 type="password"
                 id="password"
                 name="password"
+                minlength="4"
+                maxlength="10"
                 v-model="formData.password"
               /><br />
             </div>
