@@ -24,9 +24,13 @@
               <input
                 type="password"
                 id="password"
+                @blur="() => validatePassword(true)"
+                @input="() => validatePassword(false)"
                 name="password"
                 v-model="formData.password"
-              /><br />
+              />
+              <div v-if="errors.password" class="text-danger">{{ errors.password }}</div>
+              <br />
             </div>
           </div>
 
@@ -101,7 +105,8 @@ const submittedCards = ref([])
 
 const submitForm = () => {
   validateName(true)
-  if (!errors.value.username) {
+  validatePassword(true)
+  if (!errors.value.username && !errors.value.password) {
     submittedCards.value.push({ ...formData.value })
     clearForm()
   }
