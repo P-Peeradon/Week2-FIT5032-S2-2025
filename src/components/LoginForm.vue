@@ -47,17 +47,32 @@
 
             <div class="col-md-6">
               <label for="gender">Gender</label><br />
-              <select id="gender" v-model="formData.gender">
+              <select
+                id="gender"
+                @blur="() => validateGender(true)"
+                @input="() => validateGender(false)"
+                v-model="formData.gender"
+              >
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
               </select>
+              <div v-if="errors.gender" class="text-danger">{{ errors.gender }}</div>
             </div>
           </div>
 
           <div class="mb-3">
             <label for="reason">Reason For Joining:</label><br />
-            <textarea id="reason" name="reason" rows="3" v-model="formData.reason"></textarea><br />
+            <textarea
+              id="reason"
+              name="reason"
+              rows="3"
+              @blur="() => validateReason(true)"
+              @input="() => validateReason(false)"
+              v-model="formData.reason"
+            ></textarea>
+            <div v-if="errors.reason" class="text-danger">{{ errors.reason }}</div>
+            <br />
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -106,7 +121,14 @@ const submittedCards = ref([])
 const submitForm = () => {
   validateName(true)
   validatePassword(true)
-  if (!errors.value.username && !errors.value.password) {
+  validateGender(true)
+  validateReason(true)
+  if (
+    !errors.value.username &&
+    !errors.value.password &&
+    !errors.value.gender &&
+    !!errors.value.reason
+  ) {
     submittedCards.value.push({ ...formData.value })
     clearForm()
   }
@@ -157,6 +179,28 @@ const validatePassword = (blur) => {
     if (blur) errors.value.password = 'Password must contain at least one number.'
   } else if (!hasSpecialChar) {
     if (blur) errors.value.password = 'Password must contain at least one special character.'
+  } else {
+    errors.value.password = null
+  }
+}
+
+const validateGender = (blur) => {
+  if (!formData.value.gender) {
+    if (blur) errors.value.gender = 'Please specify your gender.'
+  } else {
+    errors.value.gender = null
+  }
+}
+
+const validateReason = (blur) => {
+  const reason = formData.value.reason
+
+  if (reason.length < 10) {
+    if (blur)
+      errors.value.reason =
+        'Please specify your reason. The length must be more than 10 characters.'
+  } else {
+    errors.value.reason = null
   }
 }
 </script>
