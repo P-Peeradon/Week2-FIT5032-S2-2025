@@ -7,13 +7,7 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="username">Username:</label><br />
-              <input
-                type="text"
-                id="username"
-                name="username"
-                required
-                v-model="formData.username"
-              /><br />
+              <input type="text" id="username" name="username" v-model="formData.username" /><br />
             </div>
 
             <div class="col-md-6">
@@ -22,8 +16,6 @@
                 type="password"
                 id="password"
                 name="password"
-                minlength="4"
-                maxlength="10"
                 v-model="formData.password"
               /><br />
             </div>
@@ -42,7 +34,7 @@
 
             <div class="col-md-6">
               <label for="gender">Gender</label><br />
-              <select id="gender" required v-model="formData.gender">
+              <select id="gender" v-model="formData.gender">
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
@@ -52,14 +44,7 @@
 
           <div class="mb-3">
             <label for="reason">Reason For Joining:</label><br />
-            <textarea
-              id="reason"
-              name="reason"
-              rows="3"
-              minlength="10"
-              v-model="formData.reason"
-            ></textarea
-            ><br />
+            <textarea id="reason" name="reason" rows="3" v-model="formData.reason"></textarea><br />
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -121,6 +106,14 @@ const clearForm = () => {
     gender: '',
   }
 }
+
+const errors = ref({
+  username: null,
+  password: null,
+  resident: null,
+  gender: null,
+  reason: null,
+})
 </script>
 
 <style scoped>
