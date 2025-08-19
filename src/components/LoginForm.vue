@@ -100,9 +100,11 @@ const formData = ref({
 const submittedCards = ref([])
 
 const submitForm = () => {
-  submittedCards.value.push({
-    ...formData.value,
-  })
+  validateName(true)
+  if (!errors.value.username) {
+    submittedCards.value.push({ ...formData.value })
+    clearForm()
+  }
 }
 
 const clearForm = () => {
