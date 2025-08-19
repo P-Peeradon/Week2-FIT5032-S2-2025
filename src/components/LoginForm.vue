@@ -42,7 +42,7 @@
 
             <div class="col-md-6">
               <label for="gender">Gender</label><br />
-              <select id="gender" v-model="formData.gender">
+              <select id="gender" required v-model="formData.gender">
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
@@ -52,7 +52,14 @@
 
           <div class="mb-3">
             <label for="reason">Reason For Joining:</label><br />
-            <textarea id="reason" name="reason" rows="3" v-model="formData.reason"></textarea><br />
+            <textarea
+              id="reason"
+              name="reason"
+              rows="3"
+              minlength="10"
+              v-model="formData.reason"
+            ></textarea
+            ><br />
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
