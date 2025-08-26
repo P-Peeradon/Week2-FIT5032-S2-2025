@@ -97,6 +97,12 @@
               <br />
             </div>
           </div>
+
+          <div class="row-mb-3">
+            <label for="reason" class="form-label">Suburb</label>
+            <input type="text" class="form-control" id="suburb" v-bind:value="formData.suburb" />
+          </div>
+
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>
@@ -110,6 +116,7 @@
               <Column field="isAustralian" header="Australian Resident"></Column>
               <Column field="gender" header="Gender"></Column>
               <Column field="reason" header="Reason"></Column>
+              <Column field="suburb" header="Suburb"></Column>
             </DataTable>
           </div>
         </div>
@@ -130,6 +137,7 @@ const formData = ref({
   isAustralian: false,
   reason: '',
   gender: '',
+  suburb: 'Clayton',
 })
 
 const submittedCards = ref([])
@@ -140,11 +148,13 @@ const submitForm = () => {
   validatePassword(true)
   validateGender(true)
   validateReason(true)
+  validateConfirmPassword(true)
   if (
     !errors.value.username &&
     !errors.value.password &&
     !errors.value.gender &&
-    !errors.value.reason
+    !errors.value.reason &&
+    !errors.value.confirmPassword
   ) {
     submittedCards.value.push({ ...formData.value })
     clearForm()
