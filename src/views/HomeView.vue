@@ -1,9 +1,9 @@
 <script setup>
-import LoginForm from '../components/LoginForm.vue'
+import LibraryRegistrationForm from '../components/LibraryRegistrationForm.vue'
 </script>
 
 <template>
-  <LoginForm />
+  <LibraryRegistrationForm />
 </template>
 
 <style></style>

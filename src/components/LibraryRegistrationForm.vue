@@ -2,7 +2,11 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1 class="text-center">User Information Form / Credentials</h1>
+        <h1 class="text-center">Library Registration Form</h1>
+        <p class="text-center">
+          This form now includes validation. Registered users are displayed in a data table below
+          (PrimeVue).
+        </p>
         <form @submit.prevent="submitForm">
           <div class="row mb-3">
             <div class="col-md-6">
@@ -245,19 +249,4 @@ const validateReason = (blur) => {
 }
 </script>
 
-<style scoped>
-.card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.card-header {
-  background-color: #275fda;
-  color: white;
-  padding: 10px;
-  border-radius: 10px 10px 0 0;
-}
-.list-group-item {
-  padding: 10px;
-}
-</style>
+<style scoped></style>
