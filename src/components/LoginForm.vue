@@ -170,6 +170,7 @@ const clearForm = () => {
     isAustralian: false,
     reason: '',
     gender: '',
+    suburb: 'Clayton',
   }
 }
 
