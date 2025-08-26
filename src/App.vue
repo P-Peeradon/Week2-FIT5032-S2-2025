@@ -8,7 +8,6 @@ import LoginForm from './components/LoginForm.vue'
   </header>
 
   <main>
-    <!-- <JSON /> -->
     <LoginForm />
   </main>
 </template>
