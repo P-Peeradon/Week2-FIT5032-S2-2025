@@ -2,7 +2,7 @@
   <h1>Sign In</h1>
   <p><input type="text" placeholder="email" v-model="email" /></p>
   <p><input type="password" placeholder="password" v-model="password" /></p>
-  <p><button @click="register">Sign in via Firebase</button></p>
+  <p><button @click="signin()">Sign in via Firebase</button></p>
 </template>
 
 <script setup>
@@ -15,7 +15,7 @@ const password = ref('')
 const router = useRouter()
 const auth = getAuth()
 
-const register = () => {
+const signin = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((data) => {
       console.log('Firebase Register Sucessful!')
