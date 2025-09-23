@@ -30,3 +30,18 @@ exports.countBook = onRequest((req, res) => {
     }
   })
 })
+
+exports.addBook = onRequest((req, res) => {
+  cors(req, res, async () => {
+    try {
+      const booksCollection = admin.firestore().collection('books')
+
+      await booksCollection.add(req.body)
+
+      res.status(201).send('Add book successful!')
+    } catch (err) {
+      console.error('Error adding book: ', err)
+      res.status(500).send('Error adding book')
+    }
+  })
+})

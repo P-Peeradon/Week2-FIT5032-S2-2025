@@ -18,10 +18,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import db from '@/firebase/init'
-import { collection, addDoc } from 'firebase/firestore'
+import axios from 'axios'
 
-import BookList from '../components/Booklist.vue'
+import BookList from '../components/BookList.vue'
 
 const isbn = ref('')
 const name = ref('')
@@ -34,7 +33,7 @@ const addBook = async () => {
       return
     }
 
-    await addDoc(collection(db, 'books'), {
+    await axios.post('https://addbook-756jw5b2ja-uc.a.run.app', {
       isbn: isbnNumber,
       name: name.value,
     })
