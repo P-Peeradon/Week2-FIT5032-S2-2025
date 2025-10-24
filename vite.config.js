@@ -8,6 +8,7 @@ const BASE_PATH = '/Week2-FIT5032-S2-2025/' // Use your repository name here
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: BASE_PATH,
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
